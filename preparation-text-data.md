@@ -1,52 +1,34 @@
 # Preparation (Structured Data Processing)
 
-(Last updated: Feb 10, 2023)
+(Last updated: Feb 27, 2023)
 
-This part will prepare you with the background knowledge that we will use for this module.
-Smell Pittsburgh is a mobile application for crowdsourcing reports of bad odors, such as those generated from air pollution.
-The data is used to train machine learning models to predict the presence of bad smell, create push notifications to inform citizens about the bad smell, and explain local air pollution patterns.
-You will need to read a paper and interact with the online visualization to explore data.
+This part will prepare you with the background knowledge that we will use for this module.`
+You will install some useful Python packages for Natural Language Processing (NLP) and Machine Learning (ML).
 
-## Task 1: Read the Paper
 
-First, read the following paper to get an idea about the motivation, background, and design of the Smell Pittsburgh application.
-- Yen-Chia Hsu, Jennifer Cross, Paul Dille, Michael Tasota, Beatrice Dias, Randy Sargent, Ting-Hao (Kenneth) Huang, and Illah Nourbakhsh. 2020. Smell Pittsburgh: Engaging Community Citizen Science for Air Quality. ACM Transactions on Interactive Intelligent Systems. 10, 4, Article 32. DOI:[https://doi.org/10.1145/3369397](https://doi.org/10.1145/3369397). Preprint:[https://arxiv.org/pdf/1912.11936.pdf](https://arxiv.org/pdf/1912.11936.pdf).
+## Task 1: Check your installations
 
-:::{warning}
-You should already read this paper when preparing the second lecture.
-If you come to the tutorial session without reading the paper, you will probably not be able to understand the data science pipeline well.
-:::
+In this module, we will make use of some Python modules that require some extra downloads. We will use NLTK (Natural Language Toolkit) and spaCy for NLP and PyTorch for ML.
 
-When reading the paper, write down the answers to the following questions.
-- Why is there a need to develop such an application in Pittsburgh?
-- What are the data types that the Smell Pittsburgh application collects?
-- How can the data be used potentially to help local people?
-- What are the roles of data science in the Smell Pittsburgh project?
+First, for NLTK and spaCy, install both through the package manager of your choice using one of the following commands: `conda install nltk spacy` or `pip install nltk spacy`. You might already have one of these installed.
 
-## Task 2: Explore Data
+Then, download the additional data for NLTK. Open a Python interpreter or notebook and run the following code:
 
-After you read the paper mentioned previously, explore the data in the following URL that visualizes smell reports and air quality data.
-Please make sure you read the paper before doing this task.
-- Link to Smell Pittsburgh data visualization: [https://smellpgh.org/visualization](https://smellpgh.org/visualization)
+```
+import nltk
+nltk.download('punkt')
+```
 
-Specifically, please take a look at the following days to understand the distribution of data that have different conditions.
-For example, some days look good, some days have very bad odors, and some days are in the middle of these two extremes.
-- [Example of a bad smell day (Jul 7, 2020)](https://smellpgh.org/visualization?share=true&date=20200707&zoom=11&latLng=40.394,-79.914&city_id=1)
-- [Example of a good smell day (Sep 23, 2021)](https://smellpgh.org/visualization?share=true&date=20210923&zoom=11&latLng=40.394,-79.914&city_id=1)
-- [Example of a not really good smell day (Sep 20, 2021)](https://smellpgh.org/visualization?share=true&date=20210920&zoom=11&latLng=40.394,-79.914&city_id=1)
+Download the spaCy model we'll use in further tasks using this command: `python -m spacy download en_core_web_sm`.
 
-When investigating the patterns of bad odors, write down your answers to the following questions.
-Smell events mean the occurance within a time range when many people complained about bad odors.
-- Are there common wind patterns (indicated by the blue arrows on the user interface near the circles) when smell events are about to happen or are happening?
-- Are there common patterns in air quality sensor measurements (indicated by the circle on the user interface with colors) when smell events are about to happen or are happening?
-- Can you use the patterns that you found to identify similar smell events on other days? Find at least three other days that have similar patterns.
+Finally, install PyTorch using the selector on [their website](https://pytorch.org/get-started/locally/). Use the stable version, choose your current operating system, package manager (`conda` or `pip`), and programming language (Python). If you have an NVIDIA GPU and are considering some more (heavy) ML work for other projects or your thesis, it might be worth taking some hours to look into using CUDA as a computing platform. However, for this module, just using the CPU suffices. 
 
-## Task 3: Check the Statistics
+## Task 2: Explore WebVectors
 
-Next, after you explore the data, go to the following web page to see the aggregated statistics to understand the distribution of users and smell reports temporally and spatially.
-- Link to the data analysis page: [https://smellpgh.org/analysis](https://smellpgh.org/analysis)
+In the field of natural language processing (NLP), word embeddings are a way to represent a word as a vector of real numbers. This representation is useful for analyzing text. The vector is designed to encode the meaning of the word so that words that have similar meanings are closer together in the vector space.
 
-When checking the analysis on the above-mentioned web page, answer the following questions and write your answers down.
-- Are there any characteristics about the distribution of smell reports over time and geographical regions?
-- What are the common descriptions of bad odors that people reported?
-- What are the possible predictors (e.g., chemical compounds, weather data) of bad smell in the Pittsburgh region?
+The Nordic Language Processing Laboratory made the website [WebVectors](http://vectors.nlpl.eu/explore/embeddings/en/) to get familiar with the concept of word vectors by offering some nice interactive examples of how word vectors can be used. Browse around the website and answer the following questions:
+
+- Using the Similar Words page: What are some semantic associates for the proper noun 'Amsterdam' in the English Wikipedia model? Do other models yield different results?
+- Using the Calculator page: If "scientist" is related to "science", "artist" is related to what? Were you able to find some other nice combinations that did or did not work?
+- Take a look at the Models page: What types of preprocessing were used for training the models?
