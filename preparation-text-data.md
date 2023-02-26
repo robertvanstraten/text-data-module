@@ -1,9 +1,10 @@
-# Preparation (Structured Data Processing)
+# Preparation (Text Data Processing)
 
 (Last updated: Feb 27, 2023)
 
-This part will prepare you with the background knowledge that we will use for this module.`
+This part will prepare you with the background knowledge that we will use for this module.
 You will install some useful Python packages for Natural Language Processing (NLP) and Machine Learning (ML).
+You will explore some small applications to get a grasp of word embeddings.
 
 
 ## Task 1: Check your installations
@@ -31,4 +32,4 @@ The Nordic Language Processing Laboratory made the website [WebVectors](http://v
 
 - Using the Similar Words page: What are some semantic associates for the proper noun 'Amsterdam' in the English Wikipedia model? Do other models yield different results?
 - Using the Calculator page: If "scientist" is related to "science", "artist" is related to what? Were you able to find some other nice combinations that did or did not work?
-- Take a look at the Models page: What types of preprocessing were used for training the models?
+- Take a look at the Models page: Which types of preprocessing were used before training the models?
