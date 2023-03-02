@@ -17,7 +17,10 @@ Then, download the additional data for NLTK. Open a Python interpreter or notebo
 
 ```
 import nltk
+
+nltk.download('omw-1.4')
 nltk.download('punkt')
+nltk.download('stopwords')
 ```
 
 Download the spaCy model we'll use in further tasks using this command: `python -m spacy download en_core_web_sm`.
